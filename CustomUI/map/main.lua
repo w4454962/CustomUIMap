@@ -74,8 +74,9 @@ local unit = jass.CreateUnit(jass.Player(0), string.unpack(">I4",'Hpal'), - 522.
 
 life_bar.create_bar(unit)
 
+
+japi.hide_interface(0)
 jass.TimerStart(jass.CreateTimer(),1,false,function ()
     jass.DestroyTimer(jass.GetExpiredTimer())
-    japi.hide_interface(0)
     japi.set_black_borders(0,0)
 end)
