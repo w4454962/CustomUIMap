@@ -1,1 +1,2 @@
+require 'jass'
 require 'ui'

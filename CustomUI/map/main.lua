@@ -4,23 +4,9 @@ package.path = package.path .. ';'
 .. 'script\\?\\init.lua;'
 
 
-
-
-local console   = require 'jass.console'
-local jass      = require 'jass.common'
-local japi      = require 'jass.japi'
-local ui        = require 'jass.ui'
-local message   = require 'jass.message'
-json            = require 'ui.common.json'
-
-
-
-console.enable = true 
-print = console.write
-
 require 'script'
 
-
+--[[
 
  local panel = {
     id ='button_object',
@@ -48,27 +34,11 @@ message.hook = function (msg)
 
     if msg.type == "key_down" and msg.code == 512 then 
         print("aa")
-              
-        local w = 58
-        local h = 52
-
-        local label = {
-            id ='mouse',
-            type = "mouse_label",
-            x = 0,
-            y = 0,
-            w = w * 8,
-            h = h * 4,
-            normal_image = "UI\\Cursor\\HumanCursor.blp",
-        }
-        label.x = label.w / 2 - w / 4
-        label.y = label.h / 2 - w / 8
-        js.create(label)
-        js.rect(label.id,nil,w,h,nil)
+        
     end 
     return true
 end 
-
+]]
 
 --[[
 local label2 =   {
@@ -98,9 +68,11 @@ local video = {
 ui.InvokeFrontEndMethod("add_child","nil",json.encode(video))
 ui.InvokeFrontEndMethod("play_video","video_object","mv.webm","","true","false")
 
-]]
+]] 
+local life_bar = require 'ui.血条'
 local unit = jass.CreateUnit(jass.Player(0), string.unpack(">I4",'Hpal'), - 522.8, - 737.9, 337.983)
 
+life_bar.create_bar(unit)
 
 jass.TimerStart(jass.CreateTimer(),1,false,function ()
     jass.DestroyTimer(jass.GetExpiredTimer())

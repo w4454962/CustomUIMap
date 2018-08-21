@@ -114,7 +114,6 @@ event.on_update = function ()
             s[#s + 1] = ','
         end 
         s[#s + 1] = ']'
-        print(table.concat(s))
         ui.InvokeFrontEndMethod("execute_command_list",table.concat(s))
         js.command_list = {}
     end    
