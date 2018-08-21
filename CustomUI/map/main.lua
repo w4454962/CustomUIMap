@@ -20,7 +20,7 @@ print = console.write
 
 require 'script'
 
---[[
+
 
  local panel = {
     id ='button_object',
@@ -69,7 +69,7 @@ message.hook = function (msg)
     return true
 end 
 
-]]
+
 --[[
 local label2 =   {
     id = 'name',
